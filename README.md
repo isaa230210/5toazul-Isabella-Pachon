@@ -9,7 +9,8 @@ actividad desenchufada:
 <img width="2581" height="3553" alt="image" src="https://github.com/user-attachments/assets/63280f26-674e-45a2-9404-3af8c5159a5b" />
 
 circuito:
-<img width="1082" height="1033" alt="image" src="https://github.com/user-attachments/assets/ab0d5252-ee43-43ca-8504-a1eac6cfdaff" />
+<img width="855" height="1044" alt="image" src="https://github.com/user-attachments/assets/829262f6-f86a-4556-a6f9-bbff64b49cf4" />
+
 
 código:
 <img width="1196" height="1088" alt="image" src="https://github.com/user-attachments/assets/a610e976-c384-4d6e-94f6-8e00c10d754a" />
