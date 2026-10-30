@@ -267,4 +267,12 @@ Ejemplos de movimiento angular y control de posición
 * Movimiento de barrido (Sweep): Consiste en desplazar el eje del motor de manera continua y automatizada de 0∘ a 180∘   y viceversa utilizando bucles incrementales y decrementales junto con pequeños retrasos de tiempo (delay).
 * Control de posición por potenciómetro (Knob): Se lee el valor analógico proveniente de un potenciómetro (de 0 a 1023), se reescala o mapea al rango angular del servo mediante la función map() y se asigna directamente al motor para que su eje siga el movimiento manual de la  perilla.
 
-tinkercad:
+tinkercad: https://www.tinkercad.com/things/fmavu5jWsGe-grand-duup/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fall&sharecode=Rx4SFoGQSdpnW9pa6tZmsuijelksl7w3Lw5fs6bbxvI
+
+<img width="1432" height="995" alt="image" src="https://github.com/user-attachments/assets/1fa51563-e92b-4c3c-9986-1f84095042f2" />
+
+<img width="1205" height="1669" alt="image" src="https://github.com/user-attachments/assets/a163dd43-8cd8-4c12-9537-edf28c386e9f" />
+<img width="1190" height="1689" alt="image" src="https://github.com/user-attachments/assets/21289db5-c5b6-4dc5-b647-77a1eadbabf8" />
+
+
+
