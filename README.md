@@ -275,4 +275,111 @@ tinkercad: https://www.tinkercad.com/things/fmavu5jWsGe-grand-duup/editel?return
 <img width="1190" height="1689" alt="image" src="https://github.com/user-attachments/assets/21289db5-c5b6-4dc5-b647-77a1eadbabf8" />
 
 
+## Actividad 05/11/26
+
+### Secuencia A
+-Serie: 3, 6, 12, 24, 48, 96
+-Regla: Cada número se obtiene multiplicando el término anterior por 2 (el doble del anterior).
+
+### Secuencia B
+-Serie: 1, 4, 9, 16, 25, 36
+-Regla: Es la secuencia de los números cuadrados perfectos (1², 2², 3², 4², 5², 6²). También se puede notar que se le suma consecutivamente el siguiente número impar (+3, +5, +7, +9, +11).
+
+### Secuencia C
+-Serie: ▲, ▲▲, ▲▲▲, ▲▲▲▲, ▲▲▲▲▲
+-Regla: En cada paso se añade un triángulo (`▲`) más que en el elemento anterior.
+
+### Secuencia D
+-Serie: 2, 5, 11, 23, 47, 95
+-Regla: Cada término es el doble del anterior más uno. La fórmula es: (anterior × 2) + 1.
+
+---
+
+## Ejercicio 2: Diseño de Plano para un Robot
+
+**Situación:** Debes diseñar un plano sencillo de tu salón de clases para que un robot pequeño pueda desplazarse desde la puerta hasta el escritorio del docente sin chocar con obstáculos.
+
+### 1. Elementos importantes (Abstracción)
+Las paredes del salón (delimitación del espacio).
+La ubicación exacta de la puerta (`P`) y del escritorio del docente (`D`).
+Los obstáculos físicos en el suelo: pupitres de los alumnos, estanterías o columnas (`X`).
+
+### 2. Elementos que se pueden ignorar
+El color de las paredes o la decoración de los murales.
+Los objetos colgados en la pizarra o ventanas altas.
+El contenido de las mochilas o el material de papelería sobre las mesas.
+
+### 3. Plano simplificado
+```text
++-----------------------+
+
+| [P] . . . . .         |
+|             .         |
+|     [X] [X] .         |
+|     [X] [X] .         |
+|             . . . [D] |
++-----------------------+
+
+Símbolos:
+P = Puerta
+D = Escritorio del docente
+X = Obstáculo
+. = Espacio libre para avanzar / Ruta del robot
+```
+
+---
+
+## Ejercicio 3: Depuración de Algoritmos
+
+**Situación:** Un estudiante escribió el siguiente algoritmo para llegar desde su pupitre hasta la biblioteca del colegio. Sin embargo, el algoritmo tiene dos errores.
+
+### Errores encontrados
+* **Error 1:** `Paso 4: Subir las escaleras.` La biblioteca se encuentra en la misma planta o la dirección de las escaleras desvía al estudiante de la ruta correcta.
+* **Error 2:** `Paso 6: Entrar al laboratorio de química.` El destino final está equivocado, ya que el objetivo es llegar a la biblioteca y no al laboratorio.
+
+### Algoritmo corregido
+1. Salir del salón.
+2. Girar a la izquierda.
+3. Avanzar hasta el final del pasillo.
+4. **Seguir recto por el pasillo central.** (Corrección de ruta)
+5. Girar a la derecha.
+6. **Entrar a la biblioteca del colegio.** (Corrección de destino)
+7. Detenerse.
+
+### Explicación de las correcciones
+Se modificaron los pasos 4 y 6 porque el algoritmo original sufría un error de lógica de destino. Las correcciones garantizan que las instrucciones físicas y el punto de detención final coincidan exactamente con el objetivo planteado (la biblioteca).
+
+---
+
+## Ejercicio 4: Optimización y Programación Dinámica
+
+**Situación:** Un robot entra en una cuadrícula de $5 \times 5$ por la casilla $A = (1,1)$ y debe llegar a la casilla $B = (5,5)$. Solo puede moverse hacia la derecha ($\rightarrow$) o hacia abajo ($\downarrow$).
+
+### 1. Abstracción
+-Datos mínimos: Para cada casilla $(i,j)$, el algoritmo debe guardar un arreglo de tamaño 5. Cada posición indexada por $r$ (donde $r \in \{0, 1, 2, 3, 4\}$) almacena la **máxima suma acumulada** para llegar a esa casilla con un resto de $r$ al dividir entre 5.
+-Estado del problema: Cada estado se representa como la terna $(i, j, r)$, donde $i$ es la fila, $j$ es la columna y $r$ es el residuo de la suma acumulada actual al hacer módulo 5.
+
+### 2. Diseño del algoritmo
+-Caso base: En la casilla de inicio $(1,1)$, el valor de la energía es $E(1,1)$. Su residuo es $r_0 = E(1,1) \pmod 5$. Por lo tanto:
+  $$M(1,1, r_0) = E(1,1)$$
+  *(Los demás residuos para esta casilla se inicializan en $-\infty$)*.
+-Ecuación de recurrencia: Para calcular $M(i,j,r)$, evaluamos las celdas predecesoras (arriba e izquierda):
+  $$M(i,j,r) = E(i,j) + \max \begin{cases} M(i-1, j, r') \\ M(i, j-1, r') \end{cases}$$
+  Donde $r'$ es el residuo previo tal que $(r' + E(i,j)) \pmod 5 \equiv r$.
+-Orden de recorrido: Se recorre de forma iterativa fila por fila (de arriba a abajo) y columna por columna (de izquierda a derecha).
+-Respuesta final: Se lee directamente en la celda del destino final con residuo cero: $M(5,5,0).
+
+### 3. Aplicación del algoritmo
+
+| Variable | Valor del ejercicio |
+| :--- | :--- |
+| **Ruta** | $(1,1) \ (1,2) \ (2,2) \ \dots \ (5,5)$ |
+| **Suma total**  |
+| **¿Es múltiplo de 5?** | Sí, porque el estado final seleccionado pertenece a $r = 0$. |
+
+### 4. Justificación
+La ruta es la de mayor suma posible porque la programación dinámica garantiza el óptimo global. Al guardar el valor máximo para cada residuo en cada casilla, el algoritmo evita descartar caminos que temporalmente sumen poco pero que, matemáticamente, sean la única opción para que el resultado final de la meta sea un múltiplo de 5 óptimo. 
+
+### 5. Extensión matemática
+No, la ruta óptima no sería necesariamente la misma. Al cambiar la condición a "múltiplo de 3", la aritmética modular se transforma ($módulo\ 3$). Un camino con una suma muy alta que antes fue descartado por terminar en un residuo no óptimo para 5 (por ejemplo, terminar en 24), ahora pasaría a ser totalmente válido y prioritario por ser múltiplo de 3 ($24 \pmod 3 = 0$). Las decisiones locales cambian por completo la estructura del árbol de rutas.
 
