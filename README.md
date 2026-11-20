@@ -383,3 +383,14 @@ La ruta es la de mayor suma posible porque la programación dinámica garantiza 
 ### 5. Extensión matemática
 No, la ruta óptima no sería necesariamente la misma. Al cambiar la condición a "múltiplo de 3", la aritmética modular se transforma ($módulo\ 3$). Un camino con una suma muy alta que antes fue descartado por terminar en un residuo no óptimo para 5 (por ejemplo, terminar en 24), ahora pasaría a ser totalmente válido y prioritario por ser múltiplo de 3 ($24 \pmod 3 = 0$). Las decisiones locales cambian por completo la estructura del árbol de rutas.
 
+## Actividad 19/11/26
+
+https://www.tinkercad.com/things/grzOCsLaupL-brave-bigery-leelo/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fall&sharecode=qcTEvTLnpxAVDNBlXBNAESyKOD7647JyYW2rLUVNTJs
+
+<img width="1253" height="870" alt="image" src="https://github.com/user-attachments/assets/e47a6ae2-8e7f-454e-b1dd-810e356c85f1" />
+
+<img width="1181" height="1086" alt="image" src="https://github.com/user-attachments/assets/da34fee1-3477-4b65-93f3-dd7f2d011323" />
+
+<img width="1187" height="1113" alt="image" src="https://github.com/user-attachments/assets/47e9e98b-a3ff-4778-bf4f-57fa80735ae6" />
+
+<img width="1362" height="947" alt="image" src="https://github.com/user-attachments/assets/26b5f830-62a6-40b8-bd4e-a697828ae7aa" />
